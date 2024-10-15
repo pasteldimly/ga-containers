@@ -11,6 +11,9 @@ jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
+    # since we use container for this job all the steps will run inside the container and ubuntu-latest is a host machine
+    container:
+      image: node:20
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
       MONGODB_CLUSTER_ADDRESS: cluster0.srf89.mongodb.net
